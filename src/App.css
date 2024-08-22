@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #2e1065;
+}
+
+.ant-segmented-item {
+  transition: #FF8F00 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.ant-segmented-item-selected {
+  background-color: #FF8F00 !important;
+}
+
+.ant-segmented-thumb {
+  background-color: #FF8F00 !important;
+}
+

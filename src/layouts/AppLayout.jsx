@@ -30,17 +30,27 @@ const AppLayout = () => {
       </Header>
       <Layout className="text-white font-bold text-2xl">
         <Content className="bg-body">
-          <Row className="min-h-screen  m-2  text-white ">
-            <Col flex="auto" className="rounded-md border m-2 bg-background">
+          <Row className="overflow-auto  text-white flex justify-center">
+            <Col
+              xs={0}
+              md={4}
+              flex="auto"
+              className="rounded-md m-2 bg-background"
+            >
               main content
             </Col>
-            <Col span={15} className="rounded-md border m-2 bg-background">
+            <Col xs={24} md={16} className="rounded-md">
               {currentTab === "home" && <LandingPage />}
               {currentTab === "aviator" && <AviatorPage />}
               {currentTab === "games" && <GamesPage />}
               {currentTab === "casino" && <CasinoPage />}
             </Col>
-            <Col flex="auto" className="rounded-md border m-2 bg-background">
+            <Col
+              xs={0}
+              md={4}
+              flex="auto"
+              className="rounded-md m-2 bg-background"
+            >
               main content
             </Col>
           </Row>

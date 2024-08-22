@@ -1,36 +1,41 @@
-import { Skeleton, Space } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import LoadingSkeleton from "../../sections/LoadingSkeleton";
+import { Image } from "antd";
+import PrimaryButton from "../../sections/PrimaryButton";
+import SecondaryButton from "../../sections/SecondaryButton";
 
 function LandingPage() {
-  const loading = true;
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-      <div className="w-64 h-40">
-        {loading ? (
-          <Skeleton.Image
-            style={{ width: 200, height: 150 }}
-            active={loading}
-          />
-        ) : (
-          <Image
-            className="w-full h-full object-cover"
-            src="https://via.placeholder.com/200x150"
-            alt="Example"
-          />
-        )}
-      </div>
+  const [loading, setLoading] = useState(true);
 
-      <div className="w-64 h-40">
-        {loading ? (
-          <Skeleton.Image className="w-full h-full" active={loading} />
-        ) : (
-          <Image
-            className="w-full h-full object-cover"
-            src="https://via.placeholder.com/200x150"
-            alt="Example"
-          />
-        )}
-      </div>
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000); // Simulate 2 seconds loading
+  }, []);
+
+  return (
+    <div className="p-2">
+      {/* Repeat grid items */}
+      {loading ? (
+        <LoadingSkeleton />
+      ) : (
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
+          {[...Array(17)].map((_, index) => (
+            <div className="relative w-full md:h-48 rounded-md overflow-hidden group">
+              <img
+                key={index}
+                className="w-full h-full object-cover transition duration-300"
+                src={`/games/${index}.webp`}
+                alt="Game Example"
+              />
+              <div className="absolute inset-0 bg-body bg-opacity-70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <div className="text-white space-x-4 place-items-center">
+                  <PrimaryButton>Play</PrimaryButton>
+                  <SecondaryButton>Practice</SecondaryButton>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

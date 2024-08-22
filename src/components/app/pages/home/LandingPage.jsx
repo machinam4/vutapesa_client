@@ -22,7 +22,7 @@ function LandingPage() {
             <div className="relative w-full md:h-48 rounded-md overflow-hidden group">
               <img
                 key={index}
-                className="w-full h-full object-cover transition duration-300"
+                className="w-full h-full object-cover transition duration-300 "
                 src={`/games/${index}.webp`}
                 alt="Game Example"
               />

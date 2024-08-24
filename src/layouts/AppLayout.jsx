@@ -6,6 +6,9 @@ import LandingPage from "../components/app/pages/home/LandingPage";
 import AviatorPage from "../components/app/pages/home/AviatorPage";
 import GamesPage from "../components/app/pages/home/GamesPage";
 import CasinoPage from "../components/app/pages/home/CasinoPage";
+import JackpotSection from "../components/app/sections/JackpotSection";
+import WinnersSections from "../components/app/sections/winnersCard/WinnersSections";
+import AdvertSection from "../components/app/sections/AdvertSection";
 const { Header, Content, Footer, Sider } = Layout;
 const AppLayout = () => {
   const { currentTab } = useSelector((state) => {
@@ -35,23 +38,19 @@ const AppLayout = () => {
               xs={0}
               md={4}
               flex="auto"
-              className="rounded-md m-2 bg-background"
+              className="rounded-md m-2 bg-backgroud"
             >
-              main content
+              <JackpotSection />
+              <WinnersSections />
             </Col>
-            <Col xs={24} md={16} className="rounded-md">
+            <Col xs={24} md={15} className="rounded-md">
               {currentTab === "home" && <LandingPage />}
               {currentTab === "aviator" && <AviatorPage />}
               {currentTab === "games" && <GamesPage />}
               {currentTab === "casino" && <CasinoPage />}
             </Col>
-            <Col
-              xs={0}
-              md={4}
-              flex="auto"
-              className="rounded-md m-2 bg-background"
-            >
-              main content
+            <Col xs={0} md={4} flex="auto" className="rounded-md m-2">
+              <AdvertSection />
             </Col>
           </Row>
         </Content>

@@ -1,7 +1,15 @@
 import React from "react";
 import { Button } from "antd";
+import { useDispatch } from "react-redux";
+import { toggleSigninModal } from "../../../redux/appLayout/actionCreator";
 
 function NavBar() {
+  const dispatch = useDispatch();
+
+  const handleopenSigninModal = () => {
+    return dispatch(toggleSigninModal(true));
+  };
+
   return (
     <div className="flex flex-row justify-between">
       <img
@@ -19,6 +27,7 @@ function NavBar() {
         <Button
           type="outline"
           className="bg-primary mr-2 text-white border-none"
+          onClick={handleopenSigninModal}
         >
           Login
         </Button>

@@ -9,6 +9,7 @@ import CasinoPage from "../components/app/pages/home/CasinoPage";
 import JackpotSection from "../components/app/sections/JackpotSection";
 import WinnersSections from "../components/app/sections/winnersCard/WinnersSections";
 import AdvertSection from "../components/app/sections/AdvertSection";
+import SignInModal from "../components/app/auth/SignInModal";
 const { Header, Content, Footer, Sider } = Layout;
 const AppLayout = () => {
   const { currentTab } = useSelector((state) => {
@@ -33,6 +34,7 @@ const AppLayout = () => {
       </Header>
       <Layout className="text-white font-bold text-2xl">
         <Content className="bg-body">
+          <SignInModal />
           <Row className="overflow-auto  text-white flex justify-center">
             <Col
               xs={0}

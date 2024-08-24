@@ -4,6 +4,11 @@ const {
   changeMenuTabBegin,
   changeMenuTabSuccess,
   changeMenuTabErr,
+
+  //signin modla
+  openSigninModalBegin,
+  openSigninModalSuccess,
+  openSigninModalErr,
 } = actions;
 
 const changeMenuTab = (value) => {
@@ -15,7 +20,19 @@ const changeMenuTab = (value) => {
       dispatch(changeMenuTabErr(err));
     }
   };
+
+  
 };
+//signin modal
+  const toggleSigninModal = (value) => {
+    return async (dispatch) => {
+      try {
+        dispatch(openSigninModalBegin());
+        dispatch(openSigninModalSuccess(value));
+      } catch (err) {
+        dispatch(openSigninModalErr(err));
+      }
+    };
+  };
 
-
-export { changeMenuTab };
+export { changeMenuTab, toggleSigninModal };
